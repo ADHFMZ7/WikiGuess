@@ -1,7 +1,9 @@
 
 document.getElementById('start-btn').addEventListener('click', function() {
   start_game().then(data => {
-    // process the data here
+
+    SetText(data);
+
   }).catch(error => {
     console.error(error);
   });
