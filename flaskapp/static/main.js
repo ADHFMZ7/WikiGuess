@@ -47,8 +47,8 @@ function ClickLeft(json) {
 }
 
 document.getElementById('start-btn').addEventListener('click', function() {
+
     start_game().then(data => {
-  
       SetText(data);
   
     }).catch(error => {
