@@ -2,15 +2,21 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
-
+correctButton = 'correct'
 #create route for home page
 @app.route('/')
 def index():
     return render_template('index.html')
-#create route for guess
-@app.route('/guess', methods = ['POST'])
-def guess():
-    guess_img = request.form['guess']
+#create route for clicked button
+@app.route('/click', methods = ['POST'])
+def click():
+    clicked_button = request.form['clicked']
+    if clicked_button == correctButton:
+        render_template('win.html')
+    else:
+        render_template('lose.html')
+
+
 def index():
 
     title = get_random_title()
