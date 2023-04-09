@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 def generate_articles():
 
-    global articles
+    global articles 
 
     for _ in range(10):
 
@@ -32,7 +32,7 @@ def generate_articles():
                 }
 
         articles.append(data)
-    return articles
+    return articles 
 
 
 #create route for home page
@@ -44,6 +44,7 @@ def index():
 
 @app.route('/game')
 def game():
+    global articles 
     print("LEN OF ARTICLES", len(articles))
     if len(articles) <= 5:
         generate_articles()

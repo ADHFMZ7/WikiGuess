@@ -1,8 +1,12 @@
 import wikipediaapi
 import random
 
-articles = ["NATO"]
-def GetArticle(artList=articles) ->str:
+titles = "Archaea – Bacteria – Bone Wars – Cooperative pulling paradigm – Cretaceous–Paleogene extinction event – DNA – DNA nanotechnology – Ediacaran biota – Evolution – Exosome complex – Fauna of Scotland – Fertilisation of Orchids – Flight feather – Flora of Madagascar – Genetics – History of biology – History of evolutionary thought – Immune system – Introduction to viruses – Lemurs of Madagascar (book) – Major urinary proteins – Metabolism – On the Origin of Species – Phagocyte – Preening – Proteasome – RNA interference – Rotating locomotion in living systems – Serpin – Toothcomb – Virus – Wells and Wellington affair"
+
+titles = titles.split(" – ")
+
+#articles = ["NATO"]
+def GetArticle(artList=titles) ->str:
     return random.choice(artList)
 
 def GetLen(text: str) -> int:
