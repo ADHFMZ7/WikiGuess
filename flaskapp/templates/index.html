@@ -22,24 +22,28 @@
    h1
    {
       text-transform: uppercase;
-
+      text-align: center;
       background-size: auto auto;
       border: none;
-      background-size: 100% auto;
       background-color: rgb(255, 255, 255);
       font-weight: bold;
-      color: #fff;
       background-clip: text;
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 10vh;
+      /* -webkit-text-fill-color: transparent; */
+      font-size: 5vh;
+      text-decoration: none;
+      
 }
 
    h2 {
-
+      text-decoration: none;
       border: none;
-      background-size: 100% auto;
-      
+      background-size: 100%;
+      text-align: center;
+      font-weight: normal;
+      color: #919191;
+      text-shadow: 10px 10px 14px #626262;
+
 
    }
 
@@ -112,7 +116,8 @@
       left: 3vh;
       width: 30%;
       height: 85vh;
-
+      padding: 20px;
+      line-height: 2;
       background-color: rgb(38, 38, 38);
       border-radius: 35px;
       border-width: 0.75vh;
@@ -124,14 +129,18 @@
    }
 
    .title {
-      margin-top: 1vh;
-      bottom: 5vh;
-      text-align: center;
+      
+      /* bottom: 5vh; */
+      width: 52vh;
+      
       float: none;
       text-decoration: none;
       opacity: 0;
       animation: fadeIn 2.5s ease-in-out forwards;
-      transform: translateY(15vh);
+      /* transform: translateY(15vh); */
+      flex-grow: 1;
+      text-align: center;
+      margin-top: 0 auto;
    }
 
    #rightBox {
@@ -140,7 +149,8 @@
       right: 3vh;
       width: 30%;
       height: 85vh;
-      
+      padding: 20px;
+      line-height: 2;
       background-color: rgb(38, 38, 38);
       border-radius: 30px;
       border-width: 0.75vh;
@@ -178,6 +188,10 @@
       animation: fadeIn 2.5s ease-in-out forwards;
    }
 
+   .fadeIn-fast {
+      animation: fadeIn 1.5s ease-in-out forwards;
+   }
+
 
 
 
@@ -193,14 +207,14 @@
          
       <a href="#" class="hover-animation">
          
-         <h1 class="fadeIn" id="button_animate">
+         <h1 class="fadeIn-fast" id="button_animate">
                <img src="{{ url_for('static', filename='wikiguesslogobutton.png') }}" width="386" height="224" alt="WikiGuessButton" class="img-back" zindex="110">
             <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="386" height="224" alt="WikiGuess" class="img-front" id="start-btn" zindex="100">
          </h1>
          <section id="button_animate">
 
-            <h1 class="" id="titlez" style="opacity: 0" class="slideUp">Title!</h1>
-            
+            <h1 align = "center" class="" id="titlez" style="opacity: 0" class="slideUp">Title!</h1>
+            <h2 class="" id="subhead" style="opacity: 0">Subheading!</h2>
          </section>
          
       </a>
