@@ -32,7 +32,7 @@
       /* -webkit-text-fill-color: transparent; */
       font-size: 5vh;
       text-decoration: none;
-      text-align: justify;
+
 }
 
    h2 {
@@ -140,7 +140,7 @@
       flex-grow: 1;
       text-align: center;
       margin-top: 0 auto;
-      text-align: justify;
+
    }
 
    #rightBox {
@@ -192,7 +192,15 @@
       animation: fadeIn 1.5s ease-in-out forwards;
    }
 
-
+   .scoreCounter {
+      position: absolute;
+      top: -30vh;
+      left: -78vh;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 4px #919191;
+      }
 
 
 
@@ -216,7 +224,7 @@
             <h1 align = "center" class="" id="titlez" style="opacity: 0" class="slideUp">Title!</h1>
             <h2 class="" id="subhead" style="opacity: 0">Subheading!</h2>
          </section>
-         
+         <span id="hs" class="scoreCounter">Score: 0</span>
       </a>
       <button class="" id="rightBox" style="opacity: 0;">Right Box</button></button>
       <script src="../static/main.js"></script>
