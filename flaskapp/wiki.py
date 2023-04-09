@@ -29,7 +29,7 @@ def GetSection(article=GetArticle()) -> str:
         for subsection in section.sections: #iterate through subsections
             if GetLen(GetText(subsection)) <= 3500: #if the section has a subsection that is short, then add the section to valid
                 valid.append(section)
-    return random.choice(valid) #choose a valid section
+    return random.choice(sections) #choose a valid section
 
 def GetSectionName(section) -> str:
     return section.title
