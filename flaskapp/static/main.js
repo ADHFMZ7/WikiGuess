@@ -48,7 +48,8 @@ function ClickLeft(json) {
 
 document.getElementById('start-btn').addEventListener('click', function() {
     document.getElementById("button_animate").className = "animate slideUp animate--slow";
-    document.getElementById("start-btn").id = "";
+    //document.getElementById("start-btn").id = "";
+    document.getElementById("start-btn").style.display = "none";
     start_game().then(data => {
       SetText(data);
   
