@@ -1,5 +1,6 @@
 import wikipediaapi
 import random
+MAXLENGTH = 1500
 
 titles = "Archaea – Bacteria – Bone Wars – Cooperative pulling paradigm – Cretaceous–Paleogene extinction event – DNA – DNA nanotechnology – Ediacaran biota – Evolution – Exosome complex – Fauna of Scotland – Fertilisation of Orchids – Flight feather – Flora of Madagascar – Genetics – History of biology – History of evolutionary thought – Immune system – Introduction to viruses – Lemurs of Madagascar (book) – Major urinary proteins – Metabolism – On the Origin of Species – Phagocyte – Preening – Proteasome – RNA interference – Rotating locomotion in living systems – Serpin – Toothcomb – Virus – Wells and Wellington affair"
 
@@ -13,8 +14,8 @@ def GetLen(text: str) -> int:
     return len(text)
 
 def GetText(subsection) ->str:
-    if len(subsection.text) > 1500:
-        return subsection.text[:1500]
+    if len(subsection.text) > MAXLENGTH:
+        return subsection.text[:MAXLENGTH]
     return subsection.text
 
 def GetSection(article=GetArticle()) -> str:
@@ -37,7 +38,7 @@ def GetSection(article=GetArticle()) -> str:
     valid = []
     for section in sections: #iterate through headings
         for subsection in section.sections: #iterate through subsections
-            if GetLen(GetText(subsection)) <= 1500 and GetLen(GetText(subsection)) >= 100: #if the section has a subsection that is short, then add the section to valid
+            if GetLen(GetText(subsection)) <= MAXLENGTH and GetLen(GetText(subsection)) >= 100: #if the section has a subsection that is short, then add the section to valid
                 valid.append(section)
     if not valid:
         return random.choice(sections) #choose a valid section
@@ -51,7 +52,7 @@ def GetSubsection(section: str) -> str:
     if len(section.sections) == 0:
         return section
     subsection = random.choice(section.sections)
-    while len(GetText(subsection)) > 1500:
+    while len(GetText(subsection)) > MAXLENGTH:
         subsection = random.choice(section.sections)
     return subsection
 

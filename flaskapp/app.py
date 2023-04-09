@@ -6,7 +6,6 @@ import gpt
 articles = []
 
 app = Flask(__name__)
-MAX_TOKENS = 1500
 
 def generate_articles():
 
@@ -21,7 +20,6 @@ def generate_articles():
         section = wiki.GetSection(title)
         subsection = wiki.GetSubsection(section)
         block = wiki.GetText(subsection)
-        block = block if len(block) < MAX_TOKENS else block[:MAX_TOKENS]
         length = wiki.GetLen(block)
 
         print("\n\n")
