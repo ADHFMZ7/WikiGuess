@@ -24,14 +24,18 @@ def generate_articles():
         block = block if len(block) < MAX_TOKENS else block[:MAX_TOKENS]
         length = wiki.GetLen(block)
 
-        # print(title)
-        # print(section)
-        # print(subsection)
-        # print(block)
-        # print(length)
+        print("\n\n")
+
+        print(title)
+        print(section)
+        print(subsection)
+        print(block)
+        print(length)
 
         gen_text = gpt.gpt_api_call(title, subsection.title, length)
-        
+       
+        print("GPT TEXT: ", gen_text)
+
         num = randint(0, 1)
 
         data = {'title': title,
@@ -73,7 +77,3 @@ if __name__ == "__main__":
     generate_articles()
 
     app.run(debug = False)
-
-
-
-
