@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request
-from wikipediaapi
-
-
+import Wikipedia
 app = Flask(__name__)
 
 
@@ -9,7 +7,7 @@ correctButton = 'correct'
 #create route for home page
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', right = Wikipedia.text, wrong =  )
 #create route for clicked button
 @app.route('/click', methods = ['POST'])
 def click():
