@@ -3,6 +3,7 @@ import random
 MAXLENGTH = 1500
 
 titles = "Archaea – Bacteria – Bone Wars – Cooperative pulling paradigm – Cretaceous–Paleogene extinction event – DNA – DNA nanotechnology – Ediacaran biota – Evolution – Exosome complex – Fauna of Scotland – Fertilisation of Orchids – Flight feather – Flora of Madagascar – Genetics – History of biology – History of evolutionary thought – Immune system – Introduction to viruses – Lemurs of Madagascar (book) – Major urinary proteins – Metabolism – On the Origin of Species – Phagocyte – Preening – Proteasome – RNA interference – Rotating locomotion in living systems – Serpin – Toothcomb – Virus – Wells and Wellington affair"
+titles = "Abraham Lincoln – Australia – Bible – Barack Obama – Canada – Charles III – China – Cleopatra – Cristiano Ronaldo – Darth Vader – Donald Trump – Dwayne Johnson – Elizabeth II – Elon Musk – Eminem – Facebook – Freddie Mercury – Game of Thrones – Germany – India – Johnny Depp – Japan – Justin Bieber – Kanye West – Kim Kardashian – Lady Gaga – LeBron James – Lionel Messi – Malware – Michael Jordan – Michael Jackson – Miley Cyrus – New York City – Russia – Search engine – Star Wars – Steve Jobs – Stephen Hawking – Taylor Swift – The Beatles – The Big Bang Theory – United Kingdom – United States Senate – World War I – World War II – YouTube"
 
 titles = titles.split(" – ")
 
@@ -52,7 +53,7 @@ def GetSubsection(section: str) -> str:
     if len(section.sections) == 0:
         return section
     subsection = random.choice(section.sections)
-    while len(GetText(subsection)) > MAXLENGTH:
+    while len(GetText(subsection)) > MAXLENGTH or len(GetText(subsection)) == 0:
         subsection = random.choice(section.sections)
     return subsection
 
