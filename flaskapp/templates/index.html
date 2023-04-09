@@ -25,30 +25,40 @@
 
       background-size: auto auto;
       border: none;
-      background-size: 200% auto;
+      background-size: 100% auto;
       background-color: rgb(255, 255, 255);
       font-weight: bold;
       color: #fff;
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: textclip 2s linear infinite;
-      font-size: 65px;
+      font-size: 10vh;
 }
+
+   h2 {
+
+      border: none;
+      background-size: 100% auto;
+      
+
+   }
+
    .content {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 75vh;
+      z-index: 1;
    }
 
    .hover-animation {
       position: relative;
-      height: 224px;
+      height: 224px; 
       width: 386px;
-      margin: 10% auto 0;
+      margin: 10%;
       color: #fff;
-
+      top: 50px; 
+      z-index: 2;
     }
 
     .hover-animation img {
@@ -56,6 +66,8 @@
       height: 224px;
       width: 386px;
       left: 0;
+      top: 0;
+      margin-top: 50px;
       -webkit-transition: opacity 0.4s ease;
       -moz-transition: opacity 0.4s ease;
       -ms-transition: opacity 0.4s ease;
@@ -68,27 +80,6 @@
       cursor: pointer;
     }
 
-   left.my-button {
-      background-color: blue;
-      color: white;
-      position: right;
-      border-radius: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-   }
-   right.my-button {
-      background-color: blue;
-      color: white;
-      position: right;
-      border-radius: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-   }
-
    .animate {
       animation-duration: 0.5s;
       -webkit-animation-fill-mode: forwards;
@@ -96,7 +87,7 @@
    }
 
    .animate--slow {
-      animation-duration: 3s;
+      animation-duration: 2s;
    }
 
    @keyframes slideUp {
@@ -114,19 +105,106 @@
       animation-timing-function: ease-in-out;
    }
 
+
+   #leftBox {
+      position: absolute;
+      bottom: 3vh;
+      left: 3vh;
+      width: 30%;
+      height: 85vh;
+
+      background-color: rgb(38, 38, 38);
+      border-radius: 35px;
+      border-width: 0.75vh;
+      border-style: solid;
+      border-color: #444444;
+      overflow-y: auto;
+      color: #fff;
+      text-shadow: 2px 2px 4px #919191;
+   }
+
+   .title {
+      margin-top: 1vh;
+      bottom: 5vh;
+      text-align: center;
+      float: none;
+      text-decoration: none;
+      opacity: 0;
+      animation: fadeIn 2.5s ease-in-out forwards;
+      transform: translateY(15vh);
+   }
+
+   #rightBox {
+      position: absolute;
+      bottom: 3vh;
+      right: 3vh;
+      width: 30%;
+      height: 85vh;
+      
+      background-color: rgb(38, 38, 38);
+      border-radius: 30px;
+      border-width: 0.75vh;
+      border-style: solid;
+      border-color: #444444;
+      overflow-y: auto;
+      color: #fff;
+      text-shadow: 2px 2px 4px #919191;
+   }
+
+   #rightBox:hover {
+      background-color: #444444;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      text-shadow: 2px 2px 4px #0e0e0e;
+   }
+
+   #leftBox:hover {
+      background-color: #444444;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      text-shadow: 2px 2px 4px #0e0e0e;
+   }
+
+   @keyframes fadeIn {
+      from {
+         opacity: 0;
+      }
+      to {
+         opacity: 1;
+      }
+   }
+
+   .fadeIn {
+      animation: fadeIn 2.5s ease-in-out forwards;
+   }
+
+
+
+
+
    </style>
    
 
    </style>
    <div class="content">
-      <button align = "left" class="my-button" id = "left">Click me!</button></button>
+      <section>
+         <button class="" id="leftBox" style="opacity: 0;">Left Box</button></button>
+      </section>
+         
       <a href="#" class="hover-animation">
-         <h1 id="button_animate">
-               <img src="{{ url_for('static', filename='wikiguesslogobutton.png') }}" width="386" height="224" alt="WikiGuessButton" class="img-back">
-            <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="386" height="224" alt="WikiGuess" class="img-front" id="start-btn">
+         
+         <h1 class="fadeIn" id="button_animate">
+               <img src="{{ url_for('static', filename='wikiguesslogobutton.png') }}" width="386" height="224" alt="WikiGuessButton" class="img-back" zindex="110">
+            <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="386" height="224" alt="WikiGuess" class="img-front" id="start-btn" zindex="100">
          </h1>
+         <section id="button_animate">
+
+            <h1 class="" id="titlez" style="opacity: 0" class="slideUp">Title!</h1>
+            
+         </section>
+         
       </a>
-      <button align = "right" class="my-button" id = "right">Click me!</button></button>
+      <button class="" id="rightBox" style="opacity: 0;">Right Box</button></button>
       <script src="../static/main.js"></script>
    </div>
 
