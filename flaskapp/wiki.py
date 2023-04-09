@@ -39,6 +39,8 @@ def GetSectionName(section) -> str:
     return section.title
 
 def GetSubsection(section: str) -> str:
+    if len(section.sections) == 0:
+        return section
     subsection = random.choice(section.sections)
     while len(GetText(subsection)) > 3500:
         subsection = random.choice(section.sections)
