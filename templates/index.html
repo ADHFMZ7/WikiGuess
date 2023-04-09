@@ -1,15 +1,86 @@
 <!--Home Page-->
-<!DOCTYPE html>
-<html>
-<head>
-    <title align = "center">Guess the image that is written by AI</title>
-</head>
-<body>
-    <h1>Click the correct button that you think is correct</h1>
-    <form action="/click" method="post">
-		<button type="submit" name="clicked" value="wrong">{{ wrong }}</button>
-		<button type="submit" name="clicked" value="correct">{{ right }}</button>
-	</form>
-</body>
-</html>
+{% extends "base.html" %}
 
+{% block heading %}
+
+{% endblock %}
+
+{% block body %}
+
+<body style="background-color:rgb(38, 38, 38);"></body>
+   <style>
+   h1
+   {
+      text-transform: uppercase;
+
+      background-size: auto auto;
+      border: none;
+      background-size: 200% auto;
+      background-color: rgb(255, 255, 255);
+      font-weight: bold;
+      color: #fff;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textclip 2s linear infinite;
+      font-size: 65px;
+}
+   
+
+
+</style>
+<div class = "content">
+   <h1 align = "center">WikiGuess</h1>
+
+   <style>
+      .button {
+         background-color: #037d48;
+         border: #04b08e;
+         border-radius: 7px;
+         color: white;
+         padding: 20px;
+         text-decoration: none;
+         margin: 2px 4px;
+         cursor: pointer;
+         font-size: 45px;
+         font-weight: bold;
+         text-transform: uppercase;
+         letter-spacing: 1px;
+         transition: background-color 0.3s ease;
+         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+         vertical-align: middle;
+         line-height: normal;
+      }
+
+      .button:hover {
+         background-color: #1ABC9C;
+         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+   </style>
+
+   <div class = "form">
+      <form align = "center" action = '/' method = 'POST'>
+         <button class="button" type="submit">
+            <i class="fa fa-play-circle"></i> Start
+         </button>
+      </form>
+   </div>
+</div>
+
+<style>
+   .form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60vh;
+   }
+
+   button.button {
+      display: inline-block;
+      margin: 0 auto;
+   }
+</style>
+
+
+
+{% endblock %}
