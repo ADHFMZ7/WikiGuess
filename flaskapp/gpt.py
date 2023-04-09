@@ -24,5 +24,3 @@ def gpt_api_call(title, header, count):
     max_tokens=count)
     return response.choices[0].message.content
 
-
-
