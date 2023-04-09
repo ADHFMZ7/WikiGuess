@@ -56,31 +56,20 @@
          background-color: #1ABC9C;
          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
+
+      .button-container {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         /* Optional: Set a height for the container if needed */
+         height: 60vh;
+      }
    </style>
 
-   <div class = "form">
-      <form align = "center" action = '/' method = 'POST'>
-         <button class="button" type="submit">
-            <i class="fa fa-play-circle"></i> Start
-         </button>
-      </form>
-   </div>
+   <div class="button-container">
+      <button class="button" onclick="start_game()">
+         <i class="fa fa-play-circle"></i> Start
+      </button>
 </div>
-
-<style>
-   .form {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 60vh;
-   }
-
-   button.button {
-      display: inline-block;
-      margin: 0 auto;
-   }
-</style>
-
-
 
 {% endblock %}
