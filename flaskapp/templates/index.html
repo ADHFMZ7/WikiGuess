@@ -25,15 +25,14 @@
 
       background-size: auto auto;
       border: none;
-      background-size: 200% auto;
+      background-size: 100% auto;
       background-color: rgb(255, 255, 255);
       font-weight: bold;
       color: #fff;
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: textclip 2s linear infinite;
-      font-size: 65px;
+      font-size: 10vh;
 }
    .content {
       display: flex;
@@ -68,31 +67,6 @@
       cursor: pointer;
     }
 
-   left.my-button {
-      position: relative;
-      text-align: left;
-      background-color: blue;
-      color: white;
-      position: right;
-      border-radius: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-   }
-   right.my-button {
-      position:relative;
-      text-align: right;
-      background-color: blue;
-      color: white;
-      position: right;
-      border-radius: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-   }
-
    .animate {
       animation-duration: 0.5s;
       -webkit-animation-fill-mode: forwards;
@@ -100,7 +74,7 @@
    }
 
    .animate--slow {
-      animation-duration: 3s;
+      animation-duration: 2s;
    }
 
    @keyframes slideUp {
@@ -118,26 +92,67 @@
       animation-timing-function: ease-in-out;
    }
 
+
+
+
    #leftBox {
-      width: 40%;
-      height: 100px;
-      background-color: red;
-      float: left;
+      position: absolute;
+      bottom: 3vh;
+      left: 3vh;
+      width: 30%;
+      height: 85vh;
+      background-color: rgb(38, 38, 38);
+      border-radius: 35px;
+      border-width: 0.75vh;
+      border-style: solid;
+      border-color: #444444;
+      overflow-y: auto;
    }
 
-   .a {
-      width: 20%;
-      height: 100px;
-      background-color: blue;
-      float: left;
+   .title {
+      bottom: 5vh;
+      text-align: center;
+      float: none;
+      text-decoration: none;
+      opacity: 0;
+      animation: fadeIn 2.5s ease-in-out forwards;
+      z-index: -1000;
    }
 
    #rightBox {
-      width: 40%;
-      height: 100px;
-      background-color: green;
-      float: left;
-    }
+      position: absolute;
+      bottom: 3vh;
+      right: 3vh;
+      width: 30%;
+      height: 85vh;
+      background-color: rgb(38, 38, 38);
+      border-radius: 30px;
+      border-width: 0.75vh;
+      border-style: solid;
+      border-color: #444444;
+      overflow-y: auto;
+   }
+
+   #rightBox:hover {
+      background-color: #444444;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+   }
+
+   #leftBox:hover {
+      background-color: #444444;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+   }
+
+   @keyframes fadeIn {
+      from {
+         opacity: 0;
+      }
+      to {
+         opacity: 1;
+      }
+   }
 
 
    </style>
@@ -147,10 +162,12 @@
    <div class="content">
       <button class="my-button" id="leftBox">Left Box</button></button>
       <a href="#" class="hover-animation">
+         
          <h1 id="button_animate">
                <img src="{{ url_for('static', filename='wikiguesslogobutton.png') }}" width="386" height="224" alt="WikiGuessButton" class="img-back">
             <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="386" height="224" alt="WikiGuess" class="img-front" id="start-btn">
          </h1>
+         <h1 class="" id="titlez" style="opacity: 0">Title!</h1>
       </a>
       <button class="my-button" id="rightBox">Right Box</button></button>
       <script src="../static/main.js"></script>

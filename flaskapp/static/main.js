@@ -50,6 +50,10 @@ document.getElementById('start-btn').addEventListener('click', function() {
     document.getElementById("button_animate").className = "animate slideUp animate--slow";
     //document.getElementById("start-btn").id = "";
     document.getElementById("start-btn").style.display = "none";
+    document.getElementById("titlez").className = "title";
+    document.getElementById("titlez").style.display = "true";
+
+
     start_game().then(data => {
       SetText(data);
   
