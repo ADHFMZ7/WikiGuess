@@ -67,10 +67,8 @@
    <div class="content">
       <a href="#" class="hover-animation">
          <h1 align="center">
-            <form onclick="start_game()">
                <img src="{{ url_for('static', filename='wikiguesslogobutton.png') }}" width="386" height="224" alt="WikiGuessButton" class="img-back">
-            </form>
-            <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="386" height="224" alt="WikiGuess" class="img-front">
+            <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="386" height="224" alt="WikiGuess" class="img-front" onclick="start_game()">
             
          </h1>
       </a>

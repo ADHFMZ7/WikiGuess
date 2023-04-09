@@ -12,6 +12,9 @@ def generate_articles():
 
     global articles 
 
+    if len(articles) > 5:
+        return articles
+
     for _ in range(10):
 
         title = wiki.GetArticle()
@@ -69,7 +72,7 @@ if __name__ == "__main__":
     gpt.init_api("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")
     generate_articles()
 
-    app.run(debug = True)
+    app.run(debug = False)
 
 
 
