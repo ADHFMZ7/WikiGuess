@@ -2,8 +2,9 @@ from random import randint
 from flask import Flask, jsonify, render_template, request, json
 import wiki
 import gpt
+import start_articles
 
-articles = []
+articles = start_articles.values
 
 app = Flask(__name__)
 
@@ -22,16 +23,16 @@ def generate_articles():
         block = wiki.GetText(subsection)
         length = wiki.GetLen(block)
 
-        print("\n\n")
-
-        print(title)
-        print(subsection.title)
-        print(block)
-        print(length)
+        # print("\n\n")
+        #
+        # print(title)
+        # print(subsection.title)
+        # print(block)
+        # print(length)
 
         gen_text = gpt.gpt_api_call(title, subsection.title, length)
        
-        print("GPT TEXT: ", gen_text)
+        # print("GPT TEXT: ", gen_text)
 
         num = randint(0, 1)
 
@@ -41,8 +42,10 @@ def generate_articles():
                 'gpt': gen_text,
                 'randNum' : num
                 }
-
+        
         articles.append(data)
+
+    print(articles)
     return articles 
 
 def load_articles():
@@ -73,6 +76,6 @@ def game():
 if __name__ == "__main__":
 
     gpt.init_api("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")
-    generate_articles()
-
+    #generate_articles()
+    print(articles[1])
     app.run(debug = False)
