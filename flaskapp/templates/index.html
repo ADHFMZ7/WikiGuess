@@ -8,6 +8,10 @@
    <title>Document</title>
 
    <script src="../static/main.js"></script>
+
+   <style>
+
+   </style>
 </head>
 {% endblock %}
 
@@ -64,16 +68,25 @@
       cursor: pointer;
     }
 
-   </style>
+   .my-button {
+      background-color: blue;
+      color: white;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+   }
 
+   </style>
    <div class="content">
       <a href="#" class="hover-animation">
          <h1 align="center">
                <img src="{{ url_for('static', filename='wikiguesslogobutton.png') }}" width="386" height="224" alt="WikiGuessButton" class="img-back">
             <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="386" height="224" alt="WikiGuess" class="img-front" id="start-btn">
-            
          </h1>
       </a>
+      <button class="my-button">Click me!</button></button>
       <script src="../static/main.js"></script>
    </div>
 
