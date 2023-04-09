@@ -4,22 +4,10 @@ import gpt
 
 app = Flask(__name__)
 
-
-correctButton = 'correct'
 #create route for home page
 @app.route('/')
 def index():
     return render_template('index.html')
-#create route for clicked button
-
-
-# @app.route('/click', methods = ['POST'])
-# def click():
-#     clicked_button = request.form['clicked']
-#     if clicked_button == correctButton:
-#         render_template('win.html')
-#     else:
-#         render_template('lose.html')
 
 
 @app.route('/game')
@@ -44,12 +32,8 @@ def game():
 
 if __name__ == "__main__":
     app.run(debug = True)
-
     
-
-
-    
-
+        
 
 
 
