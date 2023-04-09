@@ -2,6 +2,8 @@ function SetText(json) {
     // Generate a random integer between 1 and 10
     right = document.getElementById("rightbox");
     left = document.getElementById("leftbox");
+    right.style.display = "block";
+    left.style.display = "block";
     if (json[rand] == 1) {
         right.innerHTML = json['wiki'];
         left.innerHTML = json['gpt'];
