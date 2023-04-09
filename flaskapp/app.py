@@ -32,7 +32,7 @@ def game():
     length = wiki.GetLen(block)
 
     gpt.init_api("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")
-    gen_text = gpt.gpt_api_call(title, subsection, length)
+    gen_text = gpt.gpt_api_call(title, subsection.title, length)
 
     data = {'title': title,
             'subsection': subsection.title,
@@ -44,4 +44,13 @@ def game():
 
 if __name__ == "__main__":
     app.run(debug = True)
+
+    
+
+
+    
+
+
+
+
 
