@@ -7,8 +7,8 @@
 <body>
     <h1>Click the correct button that you think is correct</h1>
     <form action="/click" method="post">
-		<button type="submit" name="clicked" value="wrong">Wrong Button</button>
-		<button type="submit" name="clicked" value="correct">Correct Button</button>
+		<button type="submit" name="clicked" value="wrong">{{ wrong }}</button>
+		<button type="submit" name="clicked" value="correct">{{ right }}</button>
 	</form>
 </body>
 </html>
