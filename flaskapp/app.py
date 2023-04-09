@@ -5,6 +5,7 @@ import gpt
 import start_articles
 
 articles = start_articles.values
+highscore = 0
 #articles = []
 
 app = Flask(__name__)
@@ -41,7 +42,7 @@ def generate_articles():
                 'subsection': subsection.title,
                 'wiki': block,
                 'gpt': gen_text,
-                'randNum' : num
+                'randNum' : num,
                 }
         
         articles.append(data)
@@ -59,14 +60,25 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/game')
+@app.route('/game', methods=['POST', 'GET'])
 def game():
-    global articles 
-    print("LEN OF ARTICLES", len(articles))
-    if len(articles) <= 5:
-        generate_articles()
 
-    return jsonify(articles.pop())
+    global highscore
+    if request.method == 'POST':
+        score = request.json['score']
+        print("RECIEVED SCORE", score)
+        highscore = max(highscore, score)
+        return 'Success'
+
+    elif request.method == 'GET':
+
+        global articles 
+        print("LEN OF ARTICLES", len(articles))
+        if len(articles) <= 5:
+            generate_articles()
+        article = articles.pop()
+        article['highscore'] = highscore
+        return jsonify(article)
 
 
     # THIS WILL SERVE A RANDOMLY SELECTED ARTICLE
