@@ -79,10 +79,38 @@
       cursor: pointer;
    }
 
+   .animate {
+      animation-duration: 0.5s;
+      -webkit-animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+   }
+
+   .animate--slow {
+      animation-duration: 3s;
+   }
+
+   @keyframes slideUp {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-300px)
+      }
+   }
+
+   .slideUp {
+      animation-name: slideUp;
+      animation-timing-function: ease-in-out;
+   }
+
+   </style>
+   
+
    </style>
    <div class="content">
       <a href="#" class="hover-animation">
-         <h1 align="center">
+         <h1 class="animate slideUp animate--slow">
                <img src="{{ url_for('static', filename='wikiguesslogobutton.png') }}" width="386" height="224" alt="WikiGuessButton" class="img-back">
             <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="386" height="224" alt="WikiGuess" class="img-front" id="start-btn">
          </h1>
@@ -91,18 +119,4 @@
       <script src="../static/main.js"></script>
    </div>
 
-
-   <!-- <a href="#" class="image-button">
-      <h1 align="center">
-         <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="386" height="224" alt="WikiGuess" class="original-image">
-         <img src="{{ url_for('static', filename='wikiguesslogobutton.png') }}" width="386" height="224" alt="WikiGuessButton" class="hover-image">
-      </h1>
-   </a> -->
-
 {% endblock %}
-
-<!-- <div class = "content">
-   <h1 align="center">
-      <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="400" height="300" alt="WikiGuess">
-      <img src="{{url_for('static', filename='wikiguesslogobutton.png') }}" width="400" height="300" alt="WikiGuessButton">
-   </h1>  -->
