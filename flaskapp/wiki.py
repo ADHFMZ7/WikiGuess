@@ -13,6 +13,8 @@ def GetLen(text: str) -> int:
     return len(text)
 
 def GetText(subsection) ->str:
+    if len(subsection.text) > 1500:
+        return subsection.text[:1500]
     return subsection.text
 
 def GetSection(article=GetArticle()) -> str:
@@ -35,9 +37,12 @@ def GetSection(article=GetArticle()) -> str:
     valid = []
     for section in sections: #iterate through headings
         for subsection in section.sections: #iterate through subsections
-            if GetLen(GetText(subsection)) <= 3500 and GetLen(GetText(subsection)) >= 100: #if the section has a subsection that is short, then add the section to valid
+            if GetLen(GetText(subsection)) <= 1500 and GetLen(GetText(subsection)) >= 100: #if the section has a subsection that is short, then add the section to valid
                 valid.append(section)
-    return random.choice(sections) #choose a valid section
+    if not valid:
+        return random.choice(sections) #choose a valid section
+    else:
+        return random.choice(valid)
 
 def GetSectionName(section) -> str:
     return section.title
@@ -46,7 +51,7 @@ def GetSubsection(section: str) -> str:
     if len(section.sections) == 0:
         return section
     subsection = random.choice(section.sections)
-    while len(GetText(subsection)) > 3500:
+    while len(GetText(subsection)) > 1500:
         subsection = random.choice(section.sections)
     return subsection
 
