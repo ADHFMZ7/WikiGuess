@@ -22,11 +22,11 @@ function SetText(json) {
         left.innerHTML = json['wiki'];
     }
 
-    let article = document.getElementById("article");
+    let article = document.getElementById("titlez");
     article.innerHTML = json['title'];
 
-    let subsection = document.getElementById("subsection");
-    subsection.innerHTML = json['subsection'];
+   //let subsection = document.getElementById("subsection");
+    //subsection.innerHTML = json['subsection'];
 }
 
 function ClickRight(json) {
@@ -84,7 +84,7 @@ document.getElementById('start-btn').addEventListener('click', function() {
 function start_game() {
   return fetch('/game')
     .then(response => {
-    console.log("response");
+    console.log(response);
       return response.json();
     })
     .then(data => {
