@@ -50,8 +50,16 @@ document.getElementById('start-btn').addEventListener('click', function() {
     document.getElementById("button_animate").className = "animate slideUp animate--slow";
     //document.getElementById("start-btn").id = "";
     document.getElementById("start-btn").style.display = "none";
-    document.getElementById("titlez").className = "title";
-    document.getElementById("titlez").style.display = "true";
+    setTimeout(function() {
+      document.getElementById("titlez").className = "title";
+    }, 1200);
+    setTimeout(function() {
+      document.getElementById("leftBox").className = "fadeIn";
+    }, 1700);
+    setTimeout(function() {
+      document.getElementById("rightBox").className = "fadeIn";
+    }, 1650);
+    
 
 
     start_game().then(data => {
