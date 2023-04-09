@@ -43,14 +43,14 @@ def GetSubsection(section: str) -> str:
 def GetSubsectionName(subsection: str) ->str:
     return subsection.title
 
-article = GetArticle()
-print("Article:", article)
-heading = GetSection(article)
-print("heading:", GetSectionName(heading))
-subsection = GetSubsection(heading)
-print("Subsection:", GetSubsectionName(subsection))
-print("Text:")
-print(GetText(subsection))
+# article = GetArticle()
+# print("Article:", article)
+# heading = GetSection(article)
+# print("heading:", GetSectionName(heading))
+# subsection = GetSubsection(heading)
+# print("Subsection:", GetSubsectionName(subsection))
+# print("Text:")
+# print(GetText(subsection))
 
 
     
