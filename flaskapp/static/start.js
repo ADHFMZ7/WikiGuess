@@ -1,4 +1,3 @@
-
 document.getElementById('start-btn').addEventListener('click', function() {
   start_game().then(data => {
 
