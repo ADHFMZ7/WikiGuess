@@ -3,32 +3,12 @@ from bs4 import BeautifulSoup
 import wikipediaapi
 import random
 
-# Define the parameters for the API request
-params = {
-   "action": "parse",
-   "page": "Python_(programming_language)",
-   "format": "json",
-   "prop": "sections"
-}
+articles = ["NATO"]
+def GetArticle(artList=articles) ->str:
+    return random.choice(artList)
 
 
-# Send the API request and retrieve the response as JSON
-response = requests.get("https://en.wikipedia.org/w/api.php", params=params).json()
-
-
-# Extract the section titles from the JSON response
-sections = response["parse"]["sections"]
-
-
-# Print the section titles
-for section in sections:
-   print(section["line"])
-
-
-
-    
-
-def GetHeading(article : str) -> str:
+def GetHeading(article=GetArticle()) -> str:
     #setting language English
     wiki = wikipediaapi.Wikipedia('en')
 
@@ -41,10 +21,15 @@ def GetHeading(article : str) -> str:
         sections.append(section)
     return random.choice(sections)
 
-def GetText(heading: str) ->str:
+
+def GetText(heading=GetHeading()) ->str:
     return heading.text
 
-def GetTextLength(text: str) -> int:
+
+def GetLen(text: str) -> int:
     return len(text)
+
+print(GetText())
+
 
     
