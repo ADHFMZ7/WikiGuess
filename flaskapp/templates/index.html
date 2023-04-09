@@ -2,7 +2,11 @@
 {% extends "base.html" %}
 
 {% block heading %}
-
+<head>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="styles.css">
+   <title>Document</title>
+</head>
 {% endblock %}
 
 {% block body %}
@@ -25,51 +29,65 @@
       animation: textclip 2s linear infinite;
       font-size: 65px;
 }
-   
+   .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 75vh;
+   }
 
+   .hover-animation {
+      position: relative;
+      height: 224px;
+      width: 386px;
+      margin: 10% auto 0;
+      color: #fff;
 
-</style>
-<div class = "content">
-   <h1 align = "center">WikiGuess</h1>
+    }
 
-   <style>
-      .button {
-         background-color: #037d48;
-         border: #04b08e;
-         border-radius: 7px;
-         color: white;
-         padding: 20px;
-         text-decoration: none;
-         margin: 2px 4px;
-         cursor: pointer;
-         font-size: 45px;
-         font-weight: bold;
-         text-transform: uppercase;
-         letter-spacing: 1px;
-         transition: background-color 0.3s ease;
-         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-         vertical-align: middle;
-         line-height: normal;
-      }
+    .hover-animation img {
+      position: absolute;
+      height: 224px;
+      width: 386px;
+      left: 0;
+      -webkit-transition: opacity 0.4s ease;
+      -moz-transition: opacity 0.4s ease;
+      -ms-transition: opacity 0.4s ease;
+      -o-transition: opacity 0.4s ease;
+      transition: opacity 0.4s ease;
+    }
 
-      .button:hover {
-         background-color: #1ABC9C;
-         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      }
+    .hover-animation img.img-front:hover {
+      opacity: 0;
+      cursor: pointer;
+    }
 
-      .button-container {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         /* Optional: Set a height for the container if needed */
-         height: 60vh;
-      }
    </style>
 
-   <div class="button-container">
-      <button class="button" onclick="start_game()">
-         <i class="fa fa-play-circle"></i> Start
-      </button>
-</div>
+   <div class="content">
+      <a href="#" class="hover-animation">
+         <h1 align="center">
+            <form onclick="start_game()">
+               <img src="{{ url_for('static', filename='wikiguesslogobutton.png') }}" width="386" height="224" alt="WikiGuessButton" class="img-back">
+            </form>
+            <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="386" height="224" alt="WikiGuess" class="img-front">
+            
+         </h1>
+      </a>
+   </div>
+
+
+   <!-- <a href="#" class="image-button">
+      <h1 align="center">
+         <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="386" height="224" alt="WikiGuess" class="original-image">
+         <img src="{{ url_for('static', filename='wikiguesslogobutton.png') }}" width="386" height="224" alt="WikiGuessButton" class="hover-image">
+      </h1>
+   </a> -->
 
 {% endblock %}
+
+<!-- <div class = "content">
+   <h1 align="center">
+      <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="400" height="300" alt="WikiGuess">
+      <img src="{{url_for('static', filename='wikiguesslogobutton.png') }}" width="400" height="300" alt="WikiGuessButton">
+   </h1>  -->
