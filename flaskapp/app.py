@@ -72,7 +72,7 @@ if __name__ == "__main__":
     gpt.init_api("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")
     generate_articles()
 
-    app.run(debug = True)
+    app.run(debug = False)
 
 
 
