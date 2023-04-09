@@ -26,49 +26,32 @@ function SetText(json) {
     let article = document.getElementById("titlez");
     article.innerHTML = g_json['title'];
 
-   //let subsection = document.getElementById("subsection");
+    let subsection = document.getElementById("subhead");
     //subsection.innerHTML = json['subsection'];
 
     //let score = document.getElementById("score");
-    //score.innerHTML = "Score: " + score;
+    subsection.innerHTML = "Score: " + score;
 }
 
-function ClickRight() {
-    console.log("CLICKED RIGHT");
-    if (g_json['rand'] == 1) {
-        //load correct animation
-        //get new json
-        //SetText()
-        //update score
-        score = score + 1;
-        post_score(score);
-        g_json = start_game();
-        g_json.then(data => {
-            SetText(data);
-        });
-    } else {
-        //load wrong animations
-        //show restart button
-        //update highscore
-        post_score(score);
-        score = 0;
-        g_json = start_game();
-    }
-}
 
 document.getElementById('start-btn').addEventListener('click', function() {
     document.getElementById("button_animate").className = "animate slideUp animate--slow";
+    //document.getElementById("rightBox_").id="rightBox";
+    //document.getElementById("leftBox_").id="leftBox";
     //document.getElementById("start-btn").id = "";
     document.getElementById("start-btn").style.display = "none";
     setTimeout(function() {
       document.getElementById("titlez").className = "title";
     }, 1200);
     setTimeout(function() {
+      document.getElementById("subhead").className = "fadeIn";
+    }, 1850);
+    setTimeout(function() {
       document.getElementById("leftBox").className = "fadeIn";
-    }, 1700);
+    }, 1900);
     setTimeout(function() {
       document.getElementById("rightBox").className = "fadeIn";
-    }, 1650);
+    }, 1850);
     
 
 
@@ -82,12 +65,13 @@ document.getElementById('start-btn').addEventListener('click', function() {
   });
  
   document.getElementById('leftBox').addEventListener('click', function() {
-    if (g_json['rand'] == 0) {
+    if (g_json['randNum'] == 0) {
         //load correct animation
         //get new json
         //SetText()
         //update score
-        score = score + 1;
+        score++;
+        //alert("correct!!");
         post_score(score)
             start_game().then(data => {
         g_json = data;
@@ -102,6 +86,7 @@ document.getElementById('start-btn').addEventListener('click', function() {
         //show restart button
         //update highscore
         post_score(score)
+        alert("Incorrect!!");
         score = 0;
         start_game().then(data => {
             g_json = data;
@@ -116,12 +101,12 @@ document.getElementById('start-btn').addEventListener('click', function() {
 
   document.getElementById('rightBox').addEventListener('click', function() {
     console.log("CLICKED RIGHT");
-    if (g_json['rand'] == 1) {
+    if (g_json['randNum'] == 1) {
         //load correct animation
         //get new json
         //SetText()
         //update score
-        score = score + 1;
+        score++;
         post_score(score);
         start_game().then(data => {
             g_json = data;
@@ -135,6 +120,7 @@ document.getElementById('start-btn').addEventListener('click', function() {
         //show restart button
         //update highscore
         post_score(score);
+        alert("Incorrect!!");
         score = 0;
         start_game().then(data => {
             g_json = data;
