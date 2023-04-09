@@ -22,7 +22,7 @@ def gpt_api_call(title, header, count):
         {"role": "user", "content": api_prompt}
     ],
     max_tokens=count)
-    return response.choices[0].content
+    return response.choices[0].message.content
 
 
 
