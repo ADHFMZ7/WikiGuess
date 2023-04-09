@@ -8,6 +8,9 @@ function SetText(json) {
     let left = document.getElementById("leftBox");
     let middle = document.getElementById("middleBox");
 
+    let hs = document.getElementById("hs");
+    hs.innerHTML = "Highscore: " + g_json['highscore'];
+
     // make middle h1 title
     // make middle h2 header
     // make middle h2 score
