@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, json
 import wiki
 import gpt
 
@@ -13,7 +13,6 @@ def index():
 #create route for clicked button
 
 
-
 # @app.route('/click', methods = ['POST'])
 # def click():
 #     clicked_button = request.form['clicked']
@@ -23,7 +22,7 @@ def index():
 #         render_template('lose.html')
 
 
-@app.route('/game', )
+@app.route('/game')
 def game():
 
     title = wiki.GetArticle()
@@ -32,11 +31,16 @@ def game():
     block = wiki.GetText(subsection) 
     length = wiki.GetLen(block)
 
-
     gpt.init_api("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")
     gen_text = gpt.gpt_api_call(title, subsection, length)
-    
-    
+
+    data = {'title': title,
+            'subsection': subsection.title,
+            'wiki': block,
+            'gpt': gen_text
+            }
+
+    return json.jsonify(data)
 
 if __name__ == "__main__":
     app.run(debug = True)
