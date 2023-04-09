@@ -8,7 +8,7 @@ def init_api(api_key):
 def gpt_api_call(title, header, count):
 
 
-    api_prompt = """For an article about "ARTICLE", make a section titled "HEADER" that is about COUNT characters long. The section is a part of a larger article about "ARTICLE".  Send only the section and omit the section's header. Write it in the style of an encyclopedia."""
+    api_prompt = """For an article about "ARTICLE", make a section titled "HEADER" that is about COUNT characters long. The section is a part of a larger article about "ARTICLE".  Send only the section and omit the section's header and try to keep it in one paragraph. Write it in the style of an encyclopedia."""
 
     api_prompt = api_prompt.replace("ARTICLE", title)
     api_prompt = api_prompt.replace("HEADER", header)

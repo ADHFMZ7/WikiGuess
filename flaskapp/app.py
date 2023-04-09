@@ -25,8 +25,7 @@ def generate_articles():
         print("\n\n")
 
         print(title)
-        print(section)
-        print(subsection)
+        print(subsection.title)
         print(block)
         print(length)
 
@@ -46,6 +45,8 @@ def generate_articles():
         articles.append(data)
     return articles 
 
+def load_articles():
+    pass
 
 #create route for home page
 @app.route('/')
