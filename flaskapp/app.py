@@ -12,6 +12,9 @@ def generate_articles():
 
     global articles 
 
+    if len(articles) > 5:
+        return articles
+
     for _ in range(10):
 
         title = wiki.GetArticle()
