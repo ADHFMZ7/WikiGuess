@@ -1,4 +1,7 @@
 from flask import Flask, render_template, request
+from wikipediaapi
+
+
 app = Flask(__name__)
 
 
