@@ -30,6 +30,8 @@ def GetSection(article=GetArticle()) -> str:
     #choosing a subsection that is less than 3500 words
     valid = []
     for section in sections: #iterate through headings
+        if section.title in ["Further reading", "Bibliography", "External links", "References"]:
+            continue
         for subsection in section.sections: #iterate through subsections
             if GetLen(GetText(subsection)) <= 3500: #if the section has a subsection that is short, then add the section to valid
                 valid.append(section)
