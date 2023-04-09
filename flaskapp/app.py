@@ -18,7 +18,14 @@ def generate_articles():
         section = wiki.GetSection(title)
         subsection = wiki.GetSubsection(section)
         block = wiki.GetText(subsection)
+        block = block if len(block) < 3500 else block[:3500]
         length = wiki.GetLen(block)
+
+        # print(title)
+        # print(section)
+        # print(subsection)
+        # print(block)
+        # print(length)
 
         gen_text = gpt.gpt_api_call(title, subsection.title, length)
         
