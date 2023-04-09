@@ -58,6 +58,8 @@ function ClickRight() {
 
 document.getElementById('start-btn').addEventListener('click', function() {
     document.getElementById("button_animate").className = "animate slideUp animate--slow";
+    //document.getElementById("rightBox_").id="rightBox";
+    //document.getElementById("leftBox_").id="leftBox";
     //document.getElementById("start-btn").id = "";
     document.getElementById("start-btn").style.display = "none";
     setTimeout(function() {
