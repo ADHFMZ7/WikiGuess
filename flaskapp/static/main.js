@@ -66,11 +66,14 @@ document.getElementById('start-btn').addEventListener('click', function() {
       document.getElementById("titlez").className = "title";
     }, 1200);
     setTimeout(function() {
+      document.getElementById("subhead").className = "fadeIn";
+    }, 1850);
+    setTimeout(function() {
       document.getElementById("leftBox").className = "fadeIn";
-    }, 1700);
+    }, 1900);
     setTimeout(function() {
       document.getElementById("rightBox").className = "fadeIn";
-    }, 1650);
+    }, 1850);
     
 
 
