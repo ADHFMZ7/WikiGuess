@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request
-import Wikipedia
-from wiki import 
-
+import Wikipedia, gpt
 app = Flask(__name__)
 
 
@@ -9,7 +7,7 @@ correctButton = 'correct'
 #create route for home page
 @app.route('/')
 def index():
-    return render_template('index.html', right = Wikipedia.text, wrong =  )
+    return render_template('index.html', right = Wikipedia.text, wrong = gpt.gpt_api_call() )
 #create route for clicked button
 @app.route('/click', methods = ['POST'])
 def click():
@@ -38,5 +36,7 @@ API_STRING = "For an article about %s, make a section titled %s that is %s chara
 
 if __name__ == "__main__":
     app.run(debug = True)
+
+
 
 
