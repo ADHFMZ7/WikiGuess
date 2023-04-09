@@ -1,5 +1,6 @@
 function SetText(json) {
     // Generate a random integer between 1 and 10
+    console.log(json["gpt"])
     let right = document.getElementById("rightbox");
     let left = document.getElementById("leftbox");
     right.style.display = "block";
