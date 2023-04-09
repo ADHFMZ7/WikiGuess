@@ -26,35 +26,13 @@ function SetText(json) {
     let article = document.getElementById("titlez");
     article.innerHTML = g_json['title'];
 
-   //let subsection = document.getElementById("subsection");
-    //subsection.innerHTML = json['subsection'];
+    let subsection = document.getElementById("subhead");
+    subsection.innerHTML = json['subsection'];
 
     //let score = document.getElementById("score");
     //score.innerHTML = "Score: " + score;
 }
 
-function ClickRight() {
-    console.log("CLICKED RIGHT");
-    if (g_json['rand'] == 1) {
-        //load correct animation
-        //get new json
-        //SetText()
-        //update score
-        score = score + 1;
-        post_score(score);
-        g_json = start_game();
-        g_json.then(data => {
-            SetText(data);
-        });
-    } else {
-        //load wrong animations
-        //show restart button
-        //update highscore
-        post_score(score);
-        score = 0;
-        g_json = start_game();
-    }
-}
 
 document.getElementById('start-btn').addEventListener('click', function() {
     document.getElementById("button_animate").className = "animate slideUp animate--slow";
@@ -92,7 +70,7 @@ document.getElementById('start-btn').addEventListener('click', function() {
         //get new json
         //SetText()
         //update score
-        score = score + 1;
+        score++;
         post_score(score)
             start_game().then(data => {
         g_json = data;
@@ -107,7 +85,7 @@ document.getElementById('start-btn').addEventListener('click', function() {
         //show restart button
         //update highscore
         post_score(score)
-        score = 0;
+        //score = 0;
         start_game().then(data => {
             g_json = data;
             SetText(data);
@@ -126,7 +104,7 @@ document.getElementById('start-btn').addEventListener('click', function() {
         //get new json
         //SetText()
         //update score
-        score = score + 1;
+        score++;
         post_score(score);
         start_game().then(data => {
             g_json = data;
@@ -140,7 +118,7 @@ document.getElementById('start-btn').addEventListener('click', function() {
         //show restart button
         //update highscore
         post_score(score);
-        score = 0;
+        //score = 0;
         start_game().then(data => {
             g_json = data;
             SetText(data);
