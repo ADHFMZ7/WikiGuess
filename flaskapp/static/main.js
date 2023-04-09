@@ -26,8 +26,8 @@ function SetText(json) {
     let article = document.getElementById("titlez");
     article.innerHTML = g_json['title'];
 
-   //let subsection = document.getElementById("subsection");
-    //subsection.innerHTML = json['subsection'];
+    let subsection = document.getElementById("subhead");
+    subsection.innerHTML = json['subsection'];
 
     //let score = document.getElementById("score");
     //score.innerHTML = "Score: " + score;
