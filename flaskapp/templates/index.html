@@ -10,7 +10,6 @@
    <script src="../wiki.py"></script>
    <script src="../app.py"></script>
    <script src="../gpt.py"></script>
-   <script src="./start.js"></script>
 </head>
 {% endblock %}
 
@@ -73,10 +72,11 @@
       <a href="#" class="hover-animation">
          <h1 align="center">
                <img src="{{ url_for('static', filename='wikiguesslogobutton.png') }}" width="386" height="224" alt="WikiGuessButton" class="img-back">
-            <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="386" height="224" alt="WikiGuess" class="img-front" onclick="start_game()">
+            <img src="{{ url_for('static', filename='wikiguesslogo.png') }}" width="386" height="224" alt="WikiGuess" class="img-front" id="start-btn">
             
          </h1>
       </a>
+      <script src="../static/start.js"></script>
    </div>
 
 

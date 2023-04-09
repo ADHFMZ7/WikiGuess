@@ -1,11 +1,23 @@
 
+document.getElementById('start-btn').addEventListener('click', function() {
+  start_game().then(data => {
+    // process the data here
+  }).catch(error => {
+    console.error(error);
+  });
+});
 
 function start_game() {
-
-	fetch('/game')
-	.then(response=> {
-		console.log(response);
-		return response.json();
-	})
-
+  return fetch('/game')
+    .then(response => {
+      console.log(response);
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      return data;
+    })
+    .catch(error => {
+      console.error(error);
+    });
 }

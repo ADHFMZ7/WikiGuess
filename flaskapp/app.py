@@ -5,6 +5,7 @@ import gpt
 import start_articles
 
 articles = start_articles.values
+#articles = []
 
 app = Flask(__name__)
 
@@ -15,7 +16,7 @@ def generate_articles():
     if len(articles) > 5:
         return articles
 
-    for _ in range(10):
+    for _ in range(15):
 
         title = wiki.GetArticle()
         section = wiki.GetSection(title)
@@ -77,5 +78,4 @@ if __name__ == "__main__":
 
     gpt.init_api("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")
     #generate_articles()
-    print(articles[1])
     app.run(debug = False)
