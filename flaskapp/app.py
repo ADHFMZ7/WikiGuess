@@ -66,6 +66,7 @@ def game():
     global highscore
     if request.method == 'POST':
         score = request.json['score']
+        print("RECIEVED SCORE", score)
         highscore = max(highscore, score)
         return 'Success'
 
