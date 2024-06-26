@@ -47,7 +47,7 @@ def generate_articles():
         
         articles.append(data)
 
-    print(articles)
+    # print(articles)
     return articles 
 
 def load_articles():
@@ -66,14 +66,14 @@ def game():
     global highscore
     if request.method == 'POST':
         score = request.json['score']
-        print("RECIEVED SCORE", score)
+        # print("RECIEVED SCORE", score)
         highscore = max(highscore, score)
         return 'Success'
 
     elif request.method == 'GET':
 
         global articles 
-        print("LEN OF ARTICLES", len(articles))
+        # print("LEN OF ARTICLES", len(articles))
         if len(articles) <= 5:
             generate_articles()
         article = articles.pop()

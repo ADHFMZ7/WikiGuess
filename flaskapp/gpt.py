@@ -14,7 +14,7 @@ def gpt_api_call(title, header, count):
     api_prompt = api_prompt.replace("HEADER", header)
     api_prompt = api_prompt.replace("COUNT", str(count))
 
-    print("API PROMPT: ", api_prompt)
+    # print("API PROMPT: ", api_prompt)
 
     response = openai.ChatCompletion.create(
     model= "gpt-3.5-turbo-0301",
